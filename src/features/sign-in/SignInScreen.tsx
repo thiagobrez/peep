@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { SafeAreaView, StyleSheet, View } from 'react-native';
 import { supabase } from '../../lib/supabase';
-import TextInput from '../../components/TextInput';
-import Text from '../../components/Text';
-import Button from '../../components/Button';
+import TextInput from '../../components/TextInput/TextInput';
+import Text from '../../components/Text/Text';
+import Button from '../../components/Button/Button';
 
 export default function SignInScreen() {
   const [email, setEmail] = useState('');

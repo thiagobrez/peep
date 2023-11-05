@@ -1,5 +1,6 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { createDrawerNavigator } from '@react-navigation/drawer';
 
 export type RootStackParamList = {
   SignIn: undefined;
@@ -13,3 +14,5 @@ export type RootTabParamList = {
 export const RootStack = createNativeStackNavigator<RootStackParamList>();
 
 export const RootTab = createBottomTabNavigator<RootTabParamList>();
+
+export const RootDrawer = createDrawerNavigator<RootTabParamList>();

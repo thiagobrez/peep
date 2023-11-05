@@ -1,9 +1,10 @@
+import 'react-native-gesture-handler';
 import React, { useEffect } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { NavigationContainer } from '@react-navigation/native';
 import useSession from './src/store/useSession';
 import { supabase } from './src/lib/supabase';
-import { RootStack } from './src/lib/navigation';
+import { RootStack } from './src/lib/navigation/index';
 import theme from './src/lib/theme';
 import HomeNavigator from './src/navigators/HomeNavigator';
 import SignInScreen from './src/features/sign-in/SignInScreen';

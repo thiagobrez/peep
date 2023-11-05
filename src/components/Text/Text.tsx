@@ -4,7 +4,7 @@ import {
   Text as RNText,
   TextProps as RNTextProps,
 } from 'react-native';
-import theme from '../lib/theme';
+import theme from '../../lib/theme';
 
 type TextProps = RNTextProps & {
   size?: keyof typeof SIZES;

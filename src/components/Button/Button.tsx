@@ -5,8 +5,8 @@ import {
   PressableProps,
   ActivityIndicator,
 } from 'react-native';
-import theme from '../lib/theme';
-import Text from './Text';
+import theme from '../../lib/theme';
+import Text from '../Text/Text';
 
 type ButtonProps = PressableProps & {
   variant?: keyof typeof VARIANTS;
