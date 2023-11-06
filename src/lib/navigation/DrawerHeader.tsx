@@ -8,9 +8,12 @@ export default function DrawerHeader({ title, navigation }) {
     navigation.dispatch(DrawerActions.openDrawer());
   };
 
-  return (
-    <View>
-      <Text onPress={openDrawer}>{title}</Text>
-    </View>
-  );
+  return null;
+
+  // TODO: Activate if a header is needed
+  // return (
+  //   <View>
+  //     <Text onPress={openDrawer}>{title}</Text>
+  //   </View>
+  // );
 }

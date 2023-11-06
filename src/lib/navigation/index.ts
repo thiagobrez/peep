@@ -9,6 +9,7 @@ export type RootStackParamList = {
 
 export type RootTabParamList = {
   Drafts: undefined;
+  Settings: undefined;
 };
 
 export const RootStack = createNativeStackNavigator<RootStackParamList>();

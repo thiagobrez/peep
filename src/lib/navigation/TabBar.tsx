@@ -1,12 +1,16 @@
 import React from 'react';
-import { SafeAreaView, TouchableOpacity } from 'react-native';
+import { SafeAreaView, StyleSheet, TouchableOpacity } from 'react-native';
 import Text from '../../components/Text/Text';
+import theme from '../theme';
+import Octicons from '@expo/vector-icons/Octicons';
+import { getIconForRoute } from './utils';
 
 export default function TabBar({ state, descriptors, navigation }) {
   return (
-    <SafeAreaView style={{ flexDirection: 'row' }}>
+    <SafeAreaView style={styles.container}>
       {state.routes.map((route, index) => {
         const { options } = descriptors[route.key];
+
         const label =
           options.tabBarLabel !== undefined
             ? options.tabBarLabel
@@ -44,8 +48,17 @@ export default function TabBar({ state, descriptors, navigation }) {
             testID={options.tabBarTestID}
             onPress={onPress}
             onLongPress={onLongPress}
-            style={{ flex: 1 }}>
-            <Text style={{ color: isFocused ? '#673ab7' : '#222' }}>
+            style={styles.tabItem}>
+            <Octicons
+              name={getIconForRoute(route.name)}
+              size={20}
+              color={isFocused ? theme.colors.purple : theme.colors.disabled}
+            />
+            <Text
+              style={[
+                styles.tabItemText,
+                isFocused ? styles.tabItemFocused : styles.tabItemUnfocused,
+              ]}>
               {label}
             </Text>
           </TouchableOpacity>
@@ -54,3 +67,26 @@ export default function TabBar({ state, descriptors, navigation }) {
     </SafeAreaView>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flexDirection: 'row',
+    marginHorizontal: 20,
+  },
+  tabItem: {
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: 8,
+  },
+  tabItemText: {
+    textAlign: 'center',
+  },
+  tabItemFocused: {
+    color: theme.colors.purple,
+  },
+  tabItemUnfocused: {
+    color: theme.colors.disabled,
+  },
+});
