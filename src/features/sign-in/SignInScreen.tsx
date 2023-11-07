@@ -55,7 +55,7 @@ export default function SignInScreen() {
     <SafeAreaView style={styles.container}>
       <View style={styles.labelWrapper}>
         <Text>
-          {showOTP ? 'Autenticação de dois fatores' : 'Entrar com email'}
+          {showOTP ? 'Two-factor authentication' : 'Sign in with email'}
         </Text>
       </View>
 
@@ -66,14 +66,14 @@ export default function SignInScreen() {
             value={token}
             placeholder="123456"
             keyboardType="number-pad"
-            accessibilityLabel="Verificação de dois fatores"
-            accessibilityHint="Verificação de dois fatores"
+            accessibilityLabel="Two-factor authentication"
+            accessibilityHint="Two-factor authentication"
           />
         ) : (
           <TextInput
             onChangeText={setEmail}
             value={email}
-            placeholder="email@desterro.club"
+            placeholder="email@example.com"
             autoCapitalize="none"
             accessibilityLabel="Email"
             accessibilityHint="Email"
@@ -83,23 +83,21 @@ export default function SignInScreen() {
 
       {showOTP && (
         <View style={styles.descriptionWrapper}>
-          <Text variant="description">
-            Insira o código enviado para {email}
-          </Text>
+          <Text variant="description">Input the code sent to {email}</Text>
         </View>
       )}
 
       <View style={styles.buttonWrapper}>
         {showOTP ? (
           <Button
-            title="Verificar"
+            title="Verify"
             loading={loading}
             disabled={!token}
             onPress={verifyOTP}
           />
         ) : (
           <Button
-            title="Entrar"
+            title="Sign in"
             loading={loading}
             disabled={!email}
             onPress={signInWithOTP}
