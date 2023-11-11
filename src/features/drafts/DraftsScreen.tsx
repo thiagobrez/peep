@@ -1,11 +1,15 @@
 import React from 'react';
 import { SafeAreaView, StyleSheet } from 'react-native';
-import Text from '../../components/Text/Text';
+import { useDatabase } from '@nozbe/watermelondb/hooks';
+import DraftsList from './DraftsList';
 
-export default function DraftsScreen() {
+function DraftsScreen() {
+  const database = useDatabase();
+  const drafts = database.get('drafts').query();
+
   return (
     <SafeAreaView style={styles.container}>
-      <Text>Drafts</Text>
+      <DraftsList drafts={drafts} />
     </SafeAreaView>
   );
 }
@@ -13,7 +17,7 @@ export default function DraftsScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
   },
 });
+
+export default DraftsScreen;
