@@ -1,8 +1,8 @@
 import React from 'react';
 import { SafeAreaView, StyleSheet, TouchableOpacity } from 'react-native';
+import Octicons from '@expo/vector-icons/Octicons';
 import Text from '../../components/Text/Text';
 import theme from '../theme';
-import Octicons from '@expo/vector-icons/Octicons';
 import { getIconForRoute } from './utils';
 
 export default function TabBar({ state, descriptors, navigation }) {

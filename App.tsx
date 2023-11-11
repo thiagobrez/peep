@@ -7,7 +7,7 @@ import useSession from './src/store/useSession';
 import { supabase } from './src/lib/supabase';
 import { RootStack } from './src/lib/navigation';
 import theme from './src/lib/theme';
-import HomeNavigator from './src/navigators/HomeNavigator';
+import HomeNavigator from './src/lib/navigation/HomeNavigator';
 import SignInScreen from './src/features/sign-in/SignInScreen';
 import { database } from './src/database';
 import StackHeaderRight from './src/lib/navigation/StackHeaderRight';

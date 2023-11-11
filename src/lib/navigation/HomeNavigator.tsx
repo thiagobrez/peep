@@ -1,12 +1,12 @@
 import React from 'react';
 import { Platform } from 'react-native';
 import Octicons from '@expo/vector-icons/Octicons';
-import { RootDrawer, RootTab } from '../lib/navigation';
-import theme from '../lib/theme';
-import DraftsScreen from '../features/drafts/DraftsScreen';
-import TabBar from '../lib/navigation/TabBar';
-import SettingsScreen from '../features/settings/SettingsScreen';
-import { getIconForRoute } from '../lib/navigation/utils';
+import { RootDrawer, RootTab } from './index';
+import theme from '../theme';
+import DraftsScreen from '../../features/drafts/DraftsScreen';
+import TabBar from './TabBar';
+import SettingsScreen from '../../features/settings/SettingsScreen';
+import { getIconForRoute } from './utils';
 
 const screens = (
   <>
