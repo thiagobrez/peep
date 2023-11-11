@@ -6,7 +6,7 @@ export default class Profile extends Model {
 
   static associations = {
     drafts: { type: 'has_many', foreignKey: 'profile_id' },
-  };
+  } as const;
 
   @children('drafts') drafts;
   @field('default_platform') defaultPlatform;

@@ -1,13 +1,11 @@
 import React from 'react';
 import { Platform } from 'react-native';
+import Octicons from '@expo/vector-icons/Octicons';
 import { RootDrawer, RootTab } from '../lib/navigation';
 import theme from '../lib/theme';
 import DraftsScreen from '../features/drafts/DraftsScreen';
 import TabBar from '../lib/navigation/TabBar';
-import { getHeaderTitle } from '@react-navigation/elements';
-import DrawerHeader from '../lib/navigation/DrawerHeader';
 import SettingsScreen from '../features/settings/SettingsScreen';
-import Octicons from '@expo/vector-icons/Octicons';
 import { getIconForRoute } from '../lib/navigation/utils';
 
 const screens = (
@@ -46,10 +44,7 @@ const HomeNavigator = () => {
     return (
       <RootDrawer.Navigator
         screenOptions={{
-          header: ({ navigation, route, options }) => {
-            const title = getHeaderTitle(options, route.name);
-            return <DrawerHeader title={title} navigation={navigation} />;
-          },
+          header: null,
           drawerType: 'permanent',
           drawerStyle: {
             backgroundColor: theme.colors.black,

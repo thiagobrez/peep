@@ -11,7 +11,7 @@ export default class Draft extends Model {
   static associations = {
     profiles: { type: 'belongs_to', key: 'profile_id' },
     posts: { type: 'has_many', foreignKey: 'draft_id' },
-  };
+  } as const;
 
   @immutableRelation('profiles', 'profile_id') profile;
   @children('posts') posts;
