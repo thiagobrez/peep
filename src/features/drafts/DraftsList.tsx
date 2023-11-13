@@ -1,7 +1,7 @@
 import React from 'react';
 import { withObservables } from '@nozbe/watermelondb/react';
 import { FlatList, View } from 'react-native';
-import theme from '../../lib/theme';
+import { theme } from '../../lib/theme';
 import DraftItem from './DraftItem';
 
 function DraftsList({ drafts }) {

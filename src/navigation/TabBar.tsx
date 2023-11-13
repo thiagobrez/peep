@@ -1,8 +1,8 @@
 import React from 'react';
 import { SafeAreaView, StyleSheet, TouchableOpacity } from 'react-native';
 import Octicons from '@expo/vector-icons/Octicons';
-import Text from '../../components/Text/Text';
-import theme from '../theme';
+import Text from '../components/Text/Text';
+import { theme } from '../lib/theme';
 import { getIconForRoute } from './utils';
 
 export default function TabBar({ state, descriptors, navigation }) {
@@ -52,7 +52,7 @@ export default function TabBar({ state, descriptors, navigation }) {
             <Octicons
               name={getIconForRoute(route.name)}
               size={20}
-              color={isFocused ? theme.colors.purple : theme.colors.disabled}
+              color={isFocused ? theme.colors.primary : theme.colors.disabled}
             />
             <Text
               style={[
@@ -84,7 +84,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   tabItemFocused: {
-    color: theme.colors.purple,
+    color: theme.colors.primary,
   },
   tabItemUnfocused: {
     color: theme.colors.disabled,

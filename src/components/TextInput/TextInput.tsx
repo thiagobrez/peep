@@ -5,7 +5,7 @@ import {
   TextInputProps as RNTextInputProps,
   View,
 } from 'react-native';
-import theme from '../../lib/theme';
+import { theme } from '../../lib/theme';
 import Text from '../Text/Text';
 
 type TextInputProps = RNTextInputProps & {

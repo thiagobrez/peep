@@ -4,7 +4,7 @@ import { Pressable, StyleSheet } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import Text from '../../components/Text/Text';
 import Draft from '../../database/model/Draft';
-import { NavigationProp } from '../../lib/navigation';
+import { NavigationProp } from '../../navigation';
 
 type DraftItemProps = {
   draft: Draft;
