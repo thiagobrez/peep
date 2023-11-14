@@ -34,7 +34,10 @@ function RootNavigator() {
                 const subRoute = getFocusedRouteNameFromRoute(
                   route,
                 ) as keyof RootTabParamList;
-                setSubRoute(subRoute);
+
+                if (subRoute) {
+                  setSubRoute(subRoute);
+                }
               },
             })}
           />
@@ -46,7 +49,9 @@ function RootNavigator() {
           <RootStack.Screen
             name="DraftDetails"
             component={DraftDetailsScreen}
-            options={{ title: null }}
+            options={({ route }) => ({
+              title: `Draft ${route.params.draftIndex}`,
+            })}
           />
         </>
       ) : (

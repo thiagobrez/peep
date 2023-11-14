@@ -8,14 +8,14 @@ import {
 } from '@react-navigation/bottom-tabs';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { CompositeNavigationProp } from '@react-navigation/native';
-import Draft from '../database/model/Draft';
 
 export type RootStackParamList = {
   SignIn: undefined;
   Home: undefined;
   NewDraft: undefined;
   DraftDetails: {
-    draft: Draft;
+    draftId: string;
+    draftIndex: number;
   };
 };
 

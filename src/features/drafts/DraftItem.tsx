@@ -15,7 +15,10 @@ const DraftItem = ({ draft, index }: DraftItemProps) => {
   const navigation = useNavigation<NavigationProp<'Home', 'Drafts'>>();
 
   const onPress = () => {
-    navigation.navigate('DraftDetails', { draft });
+    navigation.navigate('DraftDetails', {
+      draftId: draft.id,
+      draftIndex: index,
+    });
   };
 
   return (
