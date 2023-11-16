@@ -1,5 +1,10 @@
 import { Model } from '@nozbe/watermelondb';
-import { children, field } from '@nozbe/watermelondb/decorators';
+import {
+  children,
+  date,
+  field,
+  readonly,
+} from '@nozbe/watermelondb/decorators';
 
 export default class Profile extends Model {
   static table = 'profiles';
@@ -7,6 +12,9 @@ export default class Profile extends Model {
   static associations = {
     drafts: { type: 'has_many', foreignKey: 'profile_id' },
   } as const;
+
+  @readonly @date('created_at') createdAt;
+  @readonly @date('updated_at') updatedAt;
 
   @children('drafts') drafts;
   @field('default_platform') defaultPlatform;

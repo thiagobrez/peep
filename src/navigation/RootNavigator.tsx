@@ -15,6 +15,9 @@ function RootNavigator() {
   const setSubRoute = useSubRoute(state => state.setSubRoute);
   const isSignedIn = !!session?.user;
 
+  //TODO: Watch for profiles in watermelon. When a profile is present, user is signed in.
+  // If there is no profile, we need to wait for sync pull, which should be happening in background
+
   return (
     <RootStack.Navigator
       screenOptions={{

@@ -1,4 +1,5 @@
 import 'react-native-gesture-handler';
+// import 'react-native-get-random-values';
 import React, { useEffect } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { NavigationContainer } from '@react-navigation/native';
@@ -7,6 +8,7 @@ import useSession from './src/store/useSession';
 import { supabase } from './src/lib/supabase';
 import { reactNavigationTheme } from './src/lib/theme';
 import { database } from './src/database';
+import { syncDatabase } from './src/database/sync';
 import RootNavigator from './src/navigation/RootNavigator';
 
 export default function App() {
@@ -22,6 +24,7 @@ export default function App() {
     supabase.auth.onAuthStateChange((_event, session) => {
       if (session) {
         setSession(session);
+        void syncDatabase();
       }
     });
   }, [setSession]);

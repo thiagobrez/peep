@@ -11,6 +11,8 @@ export default appSchema({
         { name: 'bluesky_auth_token', type: 'string', isOptional: true },
         { name: 'lens_auth_token', type: 'string', isOptional: true },
         { name: 'farcaster_auth_token', type: 'string', isOptional: true },
+        { name: 'created_at', type: 'number' },
+        { name: 'updated_at', type: 'number' },
       ],
     }),
     tableSchema({
@@ -25,6 +27,8 @@ export default appSchema({
         { name: 'bluesky_live_url', type: 'string', isOptional: true },
         { name: 'lens_live_url', type: 'string', isOptional: true },
         { name: 'farcaster_live_url', type: 'string', isOptional: true },
+        { name: 'created_at', type: 'number' },
+        { name: 'updated_at', type: 'number' },
       ],
     }),
     tableSchema({
@@ -34,6 +38,8 @@ export default appSchema({
         { name: 'platform_name', type: 'string' },
         { name: 'sequence', type: 'number' },
         { name: 'body', type: 'string' },
+        { name: 'created_at', type: 'number' },
+        { name: 'updated_at', type: 'number' },
       ],
     }),
   ],

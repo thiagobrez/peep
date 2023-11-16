@@ -1,8 +1,10 @@
 import { Model } from '@nozbe/watermelondb';
 import {
   children,
+  date,
   field,
   immutableRelation,
+  readonly,
 } from '@nozbe/watermelondb/decorators';
 
 export default class Draft extends Model {
@@ -12,6 +14,9 @@ export default class Draft extends Model {
     profiles: { type: 'belongs_to', key: 'profile_id' },
     posts: { type: 'has_many', foreignKey: 'draft_id' },
   } as const;
+
+  @readonly @date('created_at') createdAt;
+  @readonly @date('updated_at') updatedAt;
 
   @immutableRelation('profiles', 'profile_id') profile;
   @children('posts') posts;
