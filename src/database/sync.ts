@@ -8,27 +8,35 @@ export async function syncDatabase() {
     pullChanges: async ({ lastPulledAt, schemaVersion, migration }) => {
       console.log('[🍉 ⬇️] Pulling changes', { lastPulledAt });
 
-      return { changes: {}, timestamp: Date.now() };
-
       const { data, error } = await supabase.rpc('pull', {
         last_pulled_at: lastPulledAt,
       });
 
-      console.log('[🍉 ⬇️] Error: ', error);
+      console.log('[🍉 ⬇️] PROFILES: ', JSON.stringify(data.changes.profiles));
+      console.log('[🍉 ⬇️] DRAFTS: ', JSON.stringify(data.changes.drafts));
+      console.log('[🍉 ⬇️] POSTS: ', JSON.stringify(data.changes.posts));
 
-      const { changes, timestamp } = data as {
-        changes: SyncDatabaseChangeSet;
-        timestamp: number;
-      };
+      // TODO: PROFILES ARE NOT PULLING?
 
-      return { changes, timestamp };
+      if (error) {
+        console.log('[🍉 ⬇️] Pull error: ', error);
+      } else {
+        const { changes, timestamp } = data as {
+          changes: SyncDatabaseChangeSet;
+          timestamp: number;
+        };
+
+        return { changes, timestamp };
+      }
     },
     pushChanges: async ({ changes, lastPulledAt }) => {
       console.log('[🍉 ⬆️] Pushing changes', JSON.stringify(changes));
 
       const { error } = await supabase.rpc('push', { changes });
 
-      console.log('[🍉 ⬆️] Error: ', error);
+      if (error) {
+        console.log('[🍉 ⬆️] Push error: ', error);
+      }
     },
     sendCreatedAsUpdated: true,
   });

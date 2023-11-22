@@ -20,6 +20,7 @@ function DraftDetailsScreen() {
   const onSavePost = async () => {
     await database.write(async () => {
       await database.get('posts').create((post: Post) => {
+        console.log('route.params.draftId', route.params.draftId);
         post.draft.id = route.params.draftId;
         post.body = postText;
       });

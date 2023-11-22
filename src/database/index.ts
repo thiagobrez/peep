@@ -11,4 +11,4 @@ export const database = new Database({
   modelClasses: [Profile, Draft, Post],
 });
 
-// setGenerator(() => uuidv4());
+setGenerator(() => uuidv4());

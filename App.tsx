@@ -1,5 +1,5 @@
 import 'react-native-gesture-handler';
-// import 'react-native-get-random-values';
+import 'react-native-get-random-values';
 import React, { useEffect } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { NavigationContainer } from '@react-navigation/native';
@@ -24,7 +24,9 @@ export default function App() {
     supabase.auth.onAuthStateChange((_event, session) => {
       if (session) {
         setSession(session);
-        void syncDatabase();
+
+        // TODO: Sync the database without calling multiple times
+        // void syncDatabase();
       }
     });
   }, [setSession]);
