@@ -7,6 +7,6 @@ const env = Object.fromEntries(
 module.exports = ({ config }) => {
   return {
     ...config,
-    extra: { ...env },
+    extra: { ...config.extra, ...env },
   };
 };

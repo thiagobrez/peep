@@ -1,5 +1,6 @@
 {
   "expo": {
+    "owner": "thiagobrez",
     "name": "peep",
     "slug": "peep",
     "version": "1.0.0",
@@ -13,6 +14,28 @@
     },
     "assetBundlePatterns": [
       "**/*"
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "82813c7c-dca3-488c-8199-8c0ff7db1255"
+      }
+    },
+    "plugins": [
+      [
+        "expo-build-properties",
+        {
+          "ios": {
+            "extraPods": [
+              {
+                "name": "simdjson",
+                "configurations": ["Debug", "Release"],
+                "path": "../node_modules/@nozbe/simdjson",
+                "modular_headers": true
+              }
+            ]
+          }
+        }
+      ]
     ],
     "ios": {
       "bundleIdentifier": "dev.thiagobrez.peep",
